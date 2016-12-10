@@ -1,0 +1,4 @@
+public enum BookType {
+
+NOVEL, TALE, COMEDY, DRAMA, SCIENCEFICTION, DETECTIVE
+}
