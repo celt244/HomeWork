@@ -230,7 +230,7 @@ public class Main {
     // Метод для задания 5
 
         static void reversStr (String st1){
-            for (int i = st1.length(); i < 0; i--)
+            for (int i = st1.length()-1; i > 0; i--)
                 System.out.print(st1.charAt(i));
         }
 
