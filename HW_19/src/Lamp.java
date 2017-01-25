@@ -1,9 +1,15 @@
 public class Lamp extends ArtificialLight {
 
 
+public static int counter;
+
+      public Lamp() {
+          counter++;
+    }
+
 
     public int getQuantity(){
-        return 0;
+        return counter;
     }
 
     @Override

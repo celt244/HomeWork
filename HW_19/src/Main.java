@@ -19,6 +19,9 @@ public class Main {
                     new Flashlight(),
                     new TableLamp(),
                     new TableLamp(),
+                    new Flashlight(),
+                    new Flashlight(),
+                    new Flashlight(),
                     new Flashlight()
             };
 
@@ -27,6 +30,10 @@ public class Main {
                 a.show();
                 a.temperature();
             }
+
+            Lamp lamp = new Lamp();
+        System.out.println(lamp.getQuantity() - 1);
+
 
 
 
