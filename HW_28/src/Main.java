@@ -62,11 +62,9 @@ public class Main {
                 System.out.println("The specified file was not found");
 
             InputStream input = new FileInputStream(file);
-            StringBuilder result = new StringBuilder();
             int data = -1;
             while ((data = input.read()) >= 0)
-                result.append((char) data);
-            System.out.println(result);
+                System.out.print((char) data);
         }
 
 
