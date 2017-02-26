@@ -1,5 +1,7 @@
 import java.io.*;
 
+import static java.lang.System.console;
+
 public class Main {
 
     private static final String DEFAULT_PATH = "D:\\tmp28";
@@ -9,9 +11,11 @@ public class Main {
 
 //mkFile("test.txt");
 //delete(currentDir, "test.txt");
-        openTextFile("test.txt");
+//        openTextFile("test.txt");
+        console("test.txt");
 
     }
+
 
     // 1) Реализовать метод создания нового файла в текущей директории. - mkFile [fileName]
 
@@ -67,6 +71,34 @@ public class Main {
                 System.out.print((char) data);
         }
 
+
+    }
+
+
+
+    private static void console(String s) throws IOException {
+        File file  = new File(currentDir, s);
+
+        InputStream input = new FileInputStream(file);
+        int data = -1;
+        while ((data = input.read()) >= 0)
+            System.out.print((char) data);
+        input.close();
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(reader.readLine()));
+
+        while (true){
+            String nextLine=reader.readLine();
+            if(nextLine.equalsIgnoreCase("save")) break;
+            writer.write(nextLine);
+        }
+        reader.close();
+        writer.close();
+
+        Writer writerInFile = new FileWriter(s);
+        writerInFile.write(String.valueOf(writer));
+        writerInFile.close();
 
     }
 
