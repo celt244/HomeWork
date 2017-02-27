@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 
 import static java.lang.System.console;
 
@@ -78,6 +79,8 @@ public class Main {
 
     private static void console(String s) throws IOException {
         File file  = new File(currentDir, s);
+        String[] str = new String[100];
+
 
         InputStream input = new FileInputStream(file);
         int data = -1;
@@ -86,19 +89,20 @@ public class Main {
         input.close();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(reader.readLine()));
-
+        int i = 0;
         while (true){
-            String nextLine=reader.readLine();
-            if(nextLine.equalsIgnoreCase("save")) break;
-            writer.write(nextLine);
+            i++;
+            str[i] = reader.readLine();
+            if(str[i].equalsIgnoreCase("save")) break;
         }
         reader.close();
-        writer.close();
+        System.out.println(Arrays.toString(str));
 
-        Writer writerInFile = new FileWriter(s);
-        writerInFile.write(String.valueOf(writer));
-        writerInFile.close();
+        Writer out = new FileWriter(s);
+        for(int j = 0; j < 100; j++) {
+            out.write(str[i]);
+        }
+        out.close();
 
     }
 
